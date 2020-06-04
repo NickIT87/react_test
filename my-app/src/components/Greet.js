@@ -6,7 +6,7 @@ function Greet() {
 */
 
 const Greet = () => (
-<div>
+<div className="vishwas">
     <h1>Hello Vishwas</h1>
     <p>Lorem ipsum dolor sit amet ... </p>
 </div>

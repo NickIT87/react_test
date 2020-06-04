@@ -27,8 +27,9 @@ function App() {
 }
 */
 
-import MyComponent from './components/Greet'  // Greet.js
-import { Nick } from './components/Nick'      // Nick.js
+import MyComponent from './components/Greet'  // Greet.js was named as MyComponent
+// Nick.js  Should named as original variable, because no have default export
+import { Nick } from './components/Nick'      
 
 class App extends Component {
   render() {
