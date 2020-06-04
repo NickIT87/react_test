@@ -30,6 +30,7 @@ function App() {
 import MyComponent from './components/Greet'  // Greet.js was named as MyComponent
 // Nick.js  Should named as original variable, because no have default export
 import { Nick } from './components/Nick'      
+import Welcome from './components/Welcome'
 
 class App extends Component {
   render() {
@@ -37,6 +38,7 @@ class App extends Component {
       <div className="App">
         <MyComponent/> 
         <Nick/>
+        <Welcome/>
       </div>
     );
   }
