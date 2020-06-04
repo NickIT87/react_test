@@ -31,14 +31,16 @@ import MyComponent from './components/Greet'  // Greet.js was named as MyCompone
 // Nick.js  Should named as original variable, because no have default export
 import { Nick } from './components/Nick'      
 import Welcome from './components/Welcome'
+import Hello from './components/Hello'
 
 class App extends Component {
   render() {
     return (
       <div className="App">
-        <MyComponent/> 
-        <Nick/>
-        <Welcome/>
+        {/* <MyComponent/> */}
+        {/* <Nick/> */}
+        {/* <Welcome/> */}
+        <Hello />
       </div>
     );
   }
