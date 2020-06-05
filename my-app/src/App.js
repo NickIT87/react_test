@@ -27,12 +27,12 @@ function App() {
 }
 */
 
-// import MyComponent from './components/Greet'  // Greet.js was named as MyComponent
+//import MyComponent from './components/Greet'  // Greet.js was named as MyComponent
 // Nick.js  Should named as original variable, because no have default export
-// import { Nick } from './components/Nick'      
-// import Welcome from './components/Welcome'
-// import Hello from './components/Hello'
-// import Greet from './components/less9'
+//import { Nick } from './components/Nick'      
+//import Welcome from './components/Welcome'
+//import Hello from './components/Hello'
+//import Greet from './components/less9'
 import Message from './components/less10'
 
 class App extends Component {
@@ -43,8 +43,8 @@ class App extends Component {
         {/* <Nick/> */}
         {/* <Welcome/> */}
         {/* <Hello /> */}
-
-        {/* <Greet name="Bruce" heroName="Batman">
+        {/*
+        <Greet name="Bruce" heroName="Batman">
           <p>This is children props</p>
         </Greet>
         <Greet name="Clark" heroName="Superman">
@@ -54,8 +54,8 @@ class App extends Component {
 
         <Welcome name="Bruce" heroName="Batman"/>
         <Welcome name="Clark" heroName="Superman"/>
-        <Welcome name="Diana" heroName="Wonder woman"/> */}
-
+        <Welcome name="Diana" heroName="Wonder woman"/>
+        */}
         <Message />
 
       </div>
