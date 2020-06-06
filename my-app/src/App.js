@@ -34,6 +34,7 @@ function App() {
 //import Hello from './components/Hello'
 //import Greet from './components/less9'
 import Message from './components/less10'
+import Counter from './components/Counter'
 
 class App extends Component {
   render() {
@@ -56,7 +57,9 @@ class App extends Component {
         <Welcome name="Clark" heroName="Superman"/>
         <Welcome name="Diana" heroName="Wonder woman"/>
         */}
-        <Message />
+        {/* <Message /> */}
+        
+        <Counter />
 
       </div>
     );
