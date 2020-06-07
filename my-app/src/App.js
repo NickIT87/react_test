@@ -28,13 +28,15 @@ function App() {
 */
 
 //import MyComponent from './components/Greet'  // Greet.js was named as MyComponent
-// Nick.js  Should named as original variable, because no have default export
+    // Nick.js  Should named as original variable, because no have default export
 //import { Nick } from './components/Nick'      
-//import Welcome from './components/Welcome'
+import Welcome from './components/Welcome'
 //import Hello from './components/Hello'
 //import Greet from './components/less9'
-import Message from './components/less10'
-import Counter from './components/Counter'
+//import Message from './components/less10'
+//import Counter from './components/Counter'
+import L12Greet from './components/less12Greet'
+
 
 class App extends Component {
   render() {
@@ -52,14 +54,17 @@ class App extends Component {
           <button>Action</button>
         </Greet>
         <Greet name="Diana" heroName="Wonder woman"/>
-
+        */}
+        
         <Welcome name="Bruce" heroName="Batman"/>
         <Welcome name="Clark" heroName="Superman"/>
         <Welcome name="Diana" heroName="Wonder woman"/>
-        */}
+        
         {/* <Message /> */}
         
-        <Counter />
+        {/* <Counter /> */}
+
+        <L12Greet name='test' heroName='testhero'/>
 
       </div>
     );
