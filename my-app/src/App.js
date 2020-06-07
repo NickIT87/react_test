@@ -36,8 +36,9 @@ function App() {
 //import Message from './components/less10'
 //import Counter from './components/Counter'
 //import L12Greet from './components/less12Greet'
-import FunctionClick from './components/FunctionClick'
-import ClassClick from './components/ClassClick'
+//import FunctionClick from './components/FunctionClick'
+//import ClassClick from './components/ClassClick'
+import EventBind from './components/EventBind'
 
 class App extends Component {
   render() {
@@ -68,8 +69,10 @@ class App extends Component {
 
         {/* <L12Greet name='test' heroName='testhero'/> */}
 
-        <FunctionClick />
-        <ClassClick />
+        {/* <FunctionClick /> 
+        <ClassClick /> */}
+
+        <EventBind />
 
       </div>
     );
