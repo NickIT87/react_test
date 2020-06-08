@@ -38,7 +38,8 @@ function App() {
 //import L12Greet from './components/less12Greet'
 //import FunctionClick from './components/FunctionClick'
 //import ClassClick from './components/ClassClick'
-import EventBind from './components/EventBind'
+//import EventBind from './components/EventBind'
+import ParentComponent from './components/ParentComponent'
 
 class App extends Component {
   render() {
@@ -72,7 +73,9 @@ class App extends Component {
         {/* <FunctionClick /> 
         <ClassClick /> */}
 
-        <EventBind />
+        {/* <EventBind /> */}
+
+        <ParentComponent />
 
       </div>
     );
