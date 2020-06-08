@@ -26,6 +26,12 @@ class EventBind extends Component {
         })
     }
 
+    hyperloop() {
+        for (let i = 0; i < 6; i++) {
+            console.log(i)
+        }
+    }
+
     render() {
         return (
             <div>
@@ -34,6 +40,7 @@ class EventBind extends Component {
                 <button onClick={() => this.clickHandler()}>Click second approach</button>
                 <button onClick={this.clickHandler}>Click Third approach</button>
                 <button onClick={this.clickHandler2}>Click Fourth approach</button>
+                <button onClick={this.hyperloop}>test</button>
             </div>
         )
     }
