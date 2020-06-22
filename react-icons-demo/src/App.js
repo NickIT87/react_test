@@ -3,7 +3,8 @@ import './App.css';
 import { IconContext } from 'react-icons'
 import { FaReact } from 'react-icons/fa'
 import { MdAlarm } from 'react-icons/md' 
-//import { Button } from 'react-bootstrap/Button'
+import { Button } from 'react-bootstrap'
+import 'bootstrap/dist/css/bootstrap.min.css'
 
 
 function App() {
@@ -13,6 +14,10 @@ function App() {
         <FaReact color='purple' size='10rem' />
         <MdAlarm/>
         <FaReact/>
+        <div className='button'>
+          <Button variant="danger">test</Button>
+        </div>
+        
       </div>
     </IconContext.Provider>
   );
