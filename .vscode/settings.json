@@ -1,7 +1,8 @@
 {
     "editor.fontFamily": "'Terminus \\(TTF\\)'",
     "editor.fontSize": 18,
-    "editor.fontLigatures": null,
+    "editor.fontLigatures": false,
     "terminal.integrated.fontSize": 18,
-    "git.ignoreLimitWarning": true
+    "git.ignoreLimitWarning": true,
+    "editor.tabSize": 2,
 }
