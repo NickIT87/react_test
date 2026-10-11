@@ -1,10 +1,12 @@
 import { useState } from 'react'
 import './App.css'
+import InfinitePosts from './components/InfinitePosts'
 
 function App() {
   const [count, setCount] = useState(0)
 
   return (
+    <>
     <main>
       <h1>My React App</h1>
 
@@ -14,6 +16,8 @@ function App() {
         Нажатий: {count}
       </button>
     </main>
+    <InfinitePosts/>
+    </>
   )
 }
 
