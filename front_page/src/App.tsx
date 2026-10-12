@@ -1,27 +1,87 @@
 import { useState } from 'react'
-import './App.css'
+
+import Button from '@mui/material/Button'
+import TextField from '@mui/material/TextField'
+import Card from '@mui/material/Card'
+import CardContent from '@mui/material/CardContent'
+import Typography from '@mui/material/Typography'
+import Stack from '@mui/material/Stack'
+
 import InfinitePosts from './components/InfinitePosts'
 
+
 function App() {
-  const [count, setCount] = useState(0)
+  const [name, setName] = useState('')
 
   return (
     <>
-    <main>
-      <h1>My React App</h1>
+    <Stack
+      spacing={3}
+      sx={{
+        maxWidth: 400,
+        margin: '100px auto',
+        padding: 2,
+      }}
+    >
+      <Card>
+        <CardContent>
+          <Typography variant="h5" gutterBottom>
+            Мой первый проект
+          </Typography>
 
-      <p>Моё первое приложение на React.</p>
+          <Typography variant="body2" color="text.secondary">
+            Пример использования Material UI в React.
+          </Typography>
 
-      <button onClick={() => setCount(count + 1)}>
-        Нажатий: {count}
-      </button>
-    </main>
+          <TextField
+            label="Твоё имя"
+            value={name}
+            onChange={(event) => setName(event.target.value)}
+            fullWidth
+            margin="normal"
+          />
+
+          <Button
+            variant="contained"
+            fullWidth
+            onClick={() => alert(`Привет, ${name || 'друг'}!`)}
+          >
+            Поздороваться
+          </Button>
+        </CardContent>
+      </Card>
+    </Stack>
     <InfinitePosts/>
     </>
   )
 }
 
 export default App
+
+// import { useState } from 'react'
+// import './App.css'
+// import InfinitePosts from './components/InfinitePosts'
+
+// function App() {
+//   const [count, setCount] = useState(0)
+
+//   return (
+//     <>
+//     <main>
+//       <h1>My React App</h1>
+
+//       <p>Моё первое приложение на React.</p>
+
+//       <button onClick={() => setCount(count + 1)}>
+//         Нажатий: {count}
+//       </button>
+//     </main>
+//     <InfinitePosts/>
+//     </>
+//   )
+// }
+
+// export default App
 
 /*
 
