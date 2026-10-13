@@ -1,57 +1,153 @@
-import { useState } from 'react'
+import { useMemo, useState } from 'react'
 
-import Button from '@mui/material/Button'
-import TextField from '@mui/material/TextField'
-import Card from '@mui/material/Card'
-import CardContent from '@mui/material/CardContent'
-import Typography from '@mui/material/Typography'
-import Stack from '@mui/material/Stack'
+import {
+  AppBar,
+  Box,
+  Button,
+  Card,
+  CardContent,
+  Container,
+  CssBaseline,
+  Stack,
+  TextField,
+  Toolbar,
+  Typography,
+  ThemeProvider,
+  createTheme,
+} from '@mui/material';
 
 import InfinitePosts from './components/InfinitePosts'
+import ThemeToggle from './components/ThemeToggle';
 
+type ThemeMode = 'light' | 'dark';
 
 function App() {
   const [name, setName] = useState('')
 
+  const [mode, setMode] = useState<ThemeMode>(() => {
+    return localStorage.getItem('theme') === 'dark'
+      ? 'dark'
+      : 'light';
+  });
+
+  const theme = useMemo(
+    () => createTheme({
+      palette: {
+        mode,
+      },
+    }),
+    [mode]
+  );
+
+  const toggleTheme = () => {
+    setMode((prev) => {
+      const next = prev === 'light' ? 'dark' : 'light';
+
+      localStorage.setItem('theme', next);
+
+      return next;
+    });
+  };
+
   return (
     <>
-    <Stack
-      spacing={3}
-      sx={{
-        maxWidth: 400,
-        margin: '100px auto',
-        padding: 2,
-      }}
-    >
-      <Card>
-        <CardContent>
-          <Typography variant="h5" gutterBottom>
-            Мой первый проект
+    <ThemeProvider theme={theme}>
+      <CssBaseline />
+
+      <AppBar position="static">
+        <Toolbar>
+          <Typography variant="h6" sx={{ flexGrow: 1 }}>
+            My Application
           </Typography>
 
-          <Typography variant="body2" color="text.secondary">
-            Пример использования Material UI в React.
-          </Typography>
-
-          <TextField
-            label="Твоё имя"
-            value={name}
-            onChange={(event) => setName(event.target.value)}
-            fullWidth
-            margin="normal"
+          <ThemeToggle
+            mode={mode}
+            onToggle={toggleTheme}
           />
+        </Toolbar>
+      </AppBar>
 
-          <Button
-            variant="contained"
-            fullWidth
-            onClick={() => alert(`Привет, ${name || 'друг'}!`)}
-          >
-            Поздороваться
-          </Button>
-        </CardContent>
-      </Card>
-    </Stack>
-    <InfinitePosts/>
+      <Container maxWidth="sm">
+        <Box sx={{ mt: 5 }}>
+          <Card>
+            <CardContent>
+              <Stack spacing={3}>
+                <Typography variant="h5">
+                  Настройки профиля
+                </Typography>
+
+                <Typography color="text.secondary">
+                  Текущая тема: {mode === 'light' ? 'Светлая' : 'Тёмная'}
+                </Typography>
+
+                <TextField
+                  label="Имя пользователя"
+                  placeholder="Введите имя"
+                  fullWidth
+                />
+
+                <TextField
+                  label="Email"
+                  type="email"
+                  fullWidth
+                />
+
+                <Button variant="contained">
+                  Сохранить
+                </Button>
+
+                <Button
+                  variant="outlined"
+                  onClick={toggleTheme}
+                >
+                  Сменить тему
+                </Button>
+              </Stack>
+            </CardContent>
+          </Card>
+        </Box>
+      </Container>
+    
+      <Stack
+        spacing={3}
+        sx={{
+          maxWidth: 400,
+          margin: '100px auto',
+          padding: 2,
+        }}
+      >
+        <Card>
+          <CardContent>
+            <Typography variant="h5" gutterBottom>
+              Мой первый проект
+            </Typography>
+
+            <Typography variant="body2" color="text.secondary">
+              Пример использования Material UI в React.
+            </Typography>
+
+            <TextField
+              label="Твоё имя"
+              value={name}
+              onChange={(event) => setName(event.target.value)}
+              fullWidth
+              margin="normal"
+            />
+
+            <Button
+              variant="contained"
+              fullWidth
+              onClick={() => alert(`Привет, ${name || 'друг'}!`)}
+            >
+              Поздороваться
+            </Button>
+          </CardContent>
+        </Card>
+      </Stack>
+
+      <InfinitePosts/>
+
+    </ThemeProvider>
     </>
   )
 }
