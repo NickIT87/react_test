@@ -1,5 +1,5 @@
-import { useMemo, useState } from 'react'
-
+import { useMemo, useState } from 'react';
+import { useTranslation } from 'react-i18next';
 import {
   AppBar,
   Box,
@@ -16,13 +16,15 @@ import {
   createTheme,
 } from '@mui/material';
 
-import InfinitePosts from './components/InfinitePosts'
+import LanguageSwitcher from './components/LangSwitcher/LanguageSwitcher';
+import InfinitePosts from './components/InfinitePosts';
 import ThemeToggle from './components/ThemeToggle';
 
 type ThemeMode = 'light' | 'dark';
 
 function App() {
-  const [name, setName] = useState('')
+  const [name, setName] = useState('');
+  const { t } = useTranslation();
 
   const [mode, setMode] = useState<ThemeMode>(() => {
     return localStorage.getItem('theme') === 'dark'
@@ -57,9 +59,10 @@ function App() {
       <AppBar position="static">
         <Toolbar>
           <Typography variant="h6" sx={{ flexGrow: 1 }}>
-            My Application
+            {t('app.title')}
           </Typography>
 
+          <LanguageSwitcher />
           <ThemeToggle
             mode={mode}
             onToggle={toggleTheme}
@@ -73,6 +76,7 @@ function App() {
             <CardContent>
               <Stack spacing={3}>
                 <Typography variant="h5">
+                  {t('navigation.home')}
                   Настройки профиля
                 </Typography>
 
@@ -119,10 +123,12 @@ function App() {
         <Card>
           <CardContent>
             <Typography variant="h5" gutterBottom>
+              {t('app.welcome')}
               Мой первый проект
             </Typography>
 
             <Typography variant="body2" color="text.secondary">
+              {t('app.description')}
               Пример использования Material UI в React.
             </Typography>
 
@@ -152,7 +158,7 @@ function App() {
   )
 }
 
-export default App
+export default App;
 
 // import { useState } from 'react'
 // import './App.css'

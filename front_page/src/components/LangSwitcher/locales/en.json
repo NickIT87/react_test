@@ -1,0 +1,11 @@
+{
+  "app": {
+    "title": "My application",
+    "welcome": "Welcome!",
+    "description": "This is a React localization example"
+  },
+  "navigation": {
+    "home": "Home",
+    "profile": "Profile"
+  }
+}
