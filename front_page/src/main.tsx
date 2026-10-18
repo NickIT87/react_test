@@ -1,6 +1,7 @@
 import { StrictMode } from 'react'
 import { createRoot } from 'react-dom/client'
 import './components/LangSwitcher/i18n';
+import AppThemeProvider from './providers/AppThemeProvider';
 import './index.css'
 import App from './App.tsx'
 // import CssBaseline from '@mui/material/CssBaseline'
@@ -8,6 +9,8 @@ import App from './App.tsx'
 createRoot(document.getElementById('root')!).render(
   <StrictMode>
     {/* <CssBaseline /> */}
-    <App />
+    <AppThemeProvider>
+      <App />
+    </AppThemeProvider>
   </StrictMode>,
 )

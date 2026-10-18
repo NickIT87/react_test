@@ -1,7 +1,6 @@
-import { useMemo, useState } from 'react';
+import { useState } from 'react';
 import { useTranslation } from 'react-i18next';
 import {
-  AppBar,
   Box,
   Button,
   Card,
@@ -10,66 +9,26 @@ import {
   CssBaseline,
   Stack,
   TextField,
-  Toolbar,
   Typography,
-  ThemeProvider,
-  createTheme,
 } from '@mui/material';
 
-import LanguageSwitcher from './components/LangSwitcher/LanguageSwitcher';
 import InfinitePosts from './components/InfinitePosts';
-import ThemeToggle from './components/ThemeToggle';
+import Navbar from './components/Navbar/Navbar';
+import { useAppTheme } from './providers/AppThemeProvider';
 
-type ThemeMode = 'light' | 'dark';
 
 function App() {
   const [name, setName] = useState('');
+ 
   const { t } = useTranslation();
-
-  const [mode, setMode] = useState<ThemeMode>(() => {
-    return localStorage.getItem('theme') === 'dark'
-      ? 'dark'
-      : 'light';
-  });
-
-  const theme = useMemo(
-    () => createTheme({
-      palette: {
-        mode,
-      },
-    }),
-    [mode]
-  );
-
-  const toggleTheme = () => {
-    setMode((prev) => {
-      const next = prev === 'light' ? 'dark' : 'light';
-
-      localStorage.setItem('theme', next);
-
-      return next;
-    });
-  };
+  const { mode, toggleTheme } = useAppTheme();
 
   return (
     <>
-    <ThemeProvider theme={theme}>
-      <CssBaseline />
-
-      <AppBar position="static">
-        <Toolbar>
-          <Typography variant="h6" sx={{ flexGrow: 1 }}>
-            {t('app.title')}
-          </Typography>
-
-          <LanguageSwitcher />
-          <ThemeToggle
-            mode={mode}
-            onToggle={toggleTheme}
-          />
-        </Toolbar>
-      </AppBar>
-
+      {/* <CssBaseline /> */}
+ 
+      <Navbar />
+ 
       <Container maxWidth="sm">
         <Box sx={{ mt: 5 }}>
           <Card>
@@ -153,7 +112,6 @@ function App() {
 
       <InfinitePosts/>
 
-    </ThemeProvider>
     </>
   )
 }
