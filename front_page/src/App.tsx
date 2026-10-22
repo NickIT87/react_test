@@ -6,16 +6,21 @@ import {
   Card,
   CardContent,
   Container,
-  CssBaseline,
   Stack,
   TextField,
   Typography,
 } from '@mui/material';
 
-import InfinitePosts from './components/InfinitePosts';
-import Navbar from './components/Navbar/Navbar';
 import { useAppTheme } from './providers/AppThemeProvider';
 
+import InfinitePosts from './components/InfinitePosts';
+import Navbar from './components/Navbar/Navbar';
+
+// для компонента с недвижимостью
+import PropertyPosts from './components/PropertyPosts';
+import PropertyDetails from './components/PropertyDetails';
+import { properties } from './data/properties';
+import type { Property } from './types/property';
 
 function App() {
   const [name, setName] = useState('');
@@ -23,12 +28,27 @@ function App() {
   const { t } = useTranslation();
   const { mode, toggleTheme } = useAppTheme();
 
+  const [selectedProperty, setSelectedProperty] = useState<Property | null>(null);
   return (
     <>
       {/* <CssBaseline /> */}
  
       <Navbar />
  
+      <Container maxWidth="lg" sx={{ py: 4 }}>
+        {selectedProperty ? (
+          <PropertyDetails
+            property={selectedProperty}
+            onBack={() => setSelectedProperty(null)}
+          />
+        ) : (
+          <PropertyPosts
+            properties={properties}
+            onSelect={setSelectedProperty}
+          />
+        )}
+      </Container>
+
       <Container maxWidth="sm">
         <Box sx={{ mt: 5 }}>
           <Card>
